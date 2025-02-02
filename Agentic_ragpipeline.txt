@@ -1,0 +1,39 @@
+ 
+
+Agentic RAG Pipeline
+Agentic RAG enhances traditional Retrieval-Augmented Generation by decomposing the process into specialized, autonomous AI agents. This pipeline ensures precision, reduces hallucinations, and optimizes context-aware responses. Below is a breakdown of the components and workflow:
+
+
+Input Query: The user’s question or request initiates the pipeline.
+
+1.. Router Agent:
+
+Role: Determines the query's intent, domain, and optimal retrieval strategy.
+
+Function: Routes requests to domain-specific databases or external tools (e.g., APIs, vector stores).
+
+Example: A medical query might trigger access to PubMed datasets, while a coding question routes to GitHub repositories.
+
+2.. Retrieval Agent:
+
+Role: Fetches contextually relevant documents or data chunks from the routed source.
+
+Function: Employs embedding models and similarity search algorithms (e.g., cosine similarity) to retrieve top-k candidates.
+
+3. Grader Agent:
+
+Role: Evaluate the quality and relevance of retrieved content.
+
+Function: Uses a scoring model to rank snippets by confidence, eliminating low-quality or irrelevant results.
+
+4. Hallucination Grader:
+
+Role: Flags inaccuracies or unsupported claims in generated drafts.
+
+Function: Cross-checks outputs against retrieved evidence using rule-based checks or a secondary LLM validator.
+
+5. Answer Generator Agent:
+
+Role: Synthesizes the final response.
+
+Function: Combines graded evidence and query intent to generate a coherent, citation-backed answer
