@@ -1,0 +1,12 @@
+LCEL
+https://python.langchain.com/v0.2/docs/how_to/output_parser_custom/ 
+def parse(ai_message: AIMessage) -> str:
+    """Parse the AI message."""
+    return ai_message.content.swapcase()
+
+
+chain = model | parse
+chain.invoke("hello")
+LCEL automatically upgrades the function parse to RunnableLambda(parse) when composed using a | syntax.
+
+If you don't like that you can manually import RunnableLambda and then runparse = RunnableLambda(parse).
